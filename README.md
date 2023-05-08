@@ -12,13 +12,7 @@ This is a reimplementation of [git spr](https://github.com/ejoffe/spr) written i
 - Tests don't mock git, but actually create a temporary repo to operate on
 - Features to add
   - Consider minimizing re-verifications
-    - Merging part of the stack currently causes a reverify, for a couple of reasons
-      - Reasons
-        - It uses the GH API to merge instead of pushing directly, and the GH merge button tends to recreate the commits instead of FF merging them
-        - git spr rewrites the descriptions to show that part of the stack has been merged
-      - Fixing this would require us to no longer update the descriptions of the remaining commits. Might not be worth it
-    - Adding a new commit to a stack causes a reverify
-      - This is because of the entire stack being in the description of each commit. Any addition to the stack requires all commits to be updated. We'd have to stop doing this if we wanted to avoid the reverifies
+    - Merging part of the stack currently causes a reverify. It uses the GH API to merge instead of pushing directly, and the GH merge button tends to recreate the commits instead of FF merging them
   - Branch cleanup
     - An option to remove the branches for merged PRs
     - A command to interactively clean PRs that you opened (to handle orphaned ones)
